@@ -1,0 +1,173 @@
+W3 schools
+SELECT
+SELECT column1, column2 FROM table_name;
+SELECT * FROM table_name;
+
+DISTINCT
+SELECT DISTINCT column1, column2
+FROM table_name;
+
+WHERE
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+
+Text Fields 'a' vs. Numeric Fields 1
+
+AND
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+
+OR
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+
+NOT
+SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+
+Combining AND, OR and NOT
+-------------------------
+SELECT * FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='München');
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+
+ORDER BY
+SELECT * FROM table_name ORDER BY column1 ASC|DESC;
+
+ORDER BY Several Columns
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+INSERT INTO
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ... valueX);
+INSERT INTO table_name
+VALUES (value1, value2, value3, ... valueX);
+
+Insert Data Only in Specified Columns
+INSERT INTO table_name
+VALUES (value1, value2, value3);
+
+IS NULL
+SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+
+IS NOT NULL
+SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;
+
+UPDATE 
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+UPDATE Multiple Records
+It is the WHERE clause that determines how many records will be updated.
+
+Update Warning!
+Be careful when updating records. If you omit the WHERE clause, ALL records will be updated!
+
+DELETE
+DELETE FROM table_name WHERE condition;
+
+Delete All Records
+DELETE FROM table_name;
+
+TOP 
+SELECT TOP number|percent column_name(s)
+FROM table_name
+WHERE condition;
+
+AS
+SELECT Min(column_price) AS name FROM table_name;
+SELECT column_name AS [space name] from table_name;
+
+LIKE
+SELECT column1, column2, ...
+FROM table_name
+WHERE columnN LIKE pattern;
+
+IN
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (SELECT STATEMENT);
+
+Between
+SELECT column_name(s)
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+OFFSET 
+FETCH NEXT
+SELECT
+    product_name,
+    list_price
+FROM
+    production.products
+ORDER BY
+    list_price,
+    product_name 
+OFFSET 10 ROWS 
+FETCH NEXT 10 ROWS ONLY;
+
+TIES WITH
+SELECT TOP 3 WITH TIES
+    product_name, 
+    list_price
+FROM
+    production.products
+ORDER BY 
+    list_price DESC;
+
+---------------------------------------------------------------------------------
+Function
+Min()
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+
+Max()
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+
+AVG()
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+
+SUM()
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+
+COUNT()
+SELECT COUNT(DISTINCT column1) FROM table_name
+
+LEN()
+SELECT column_name FROM table_name ORDER BY LEN(column_name) DESC | ASC
+---------------------------------------------------------------------------------
+
+Read 
+https://www.w3schools.com/sql/sql_like.asp
+https://www.w3schools.com/sql/sql_wildcards.asp
+https://www.w3schools.com/sql/sql_alias.asp
+
+---------------------------------------------------------------------------------
+
+SQL SERVER Tutorial
+https://www.sqlservertutorial.net/sql-server-basics/sql-server-like/
+
+
+
