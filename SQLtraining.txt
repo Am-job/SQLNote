@@ -89,6 +89,7 @@ WHERE condition;
 AS
 SELECT Min(column_price) AS name FROM table_name;
 SELECT column_name AS [space name] from table_name;
+SELECT column_name AS 'space name' from table_name;
 
 LIKE
 SELECT column1, column2, ...
@@ -157,17 +158,152 @@ SELECT COUNT(DISTINCT column1) FROM table_name
 
 LEN()
 SELECT column_name FROM table_name ORDER BY LEN(column_name) DESC | ASC
+
+Group By
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
 ---------------------------------------------------------------------------------
 
+Table Join
+
+INNER JOIN
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+LEFT JOIN
+SELECT column_name(s)
+FROM table 1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+Note In some databases LEFT JOIN is called LEFT OUTER JOIN.
+
+RIGHT JOIN
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+Note: In some databases RIGHT JOIN is called RIGHT OUTER JOIN.
+
+FULL OUTER JOIN 
+SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name
+WHERE condition;
+Note: FULL OUTER JOIN can potentially return very large result-sets!
+
+Self Join
+SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;
+T1 and T2 are different table aliases for the same table.
+
+Cross Join
+SELECT      [column names]
+FROM        [Table1]
+CROSS JOIN  [Table2]
+SELECT [column names]
+FROM   [Table1], [Table2]
+
+UNION
+
+SELECT column_names(s) FROM table1
+UNION 
+SELECT column_names(s) FROM table2
+The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL:
+
+SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;
+
+--------------------------------------------------------------------------------
+CreateDb
+CREATE DATABASE databasename;
+
+DropDb
+DROP DATABASE databasename;
+
+BACKUP DATABASE databasename
+TO DISK = 'filepath';
+
+Create Table
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+);
+
+Create Table Using Another Table
+CREATE TABLE new_table_name AS
+    SELECT column1, column2,...
+    FROM existing_table_name
+    WHERE ....;
+
+DROP Table
+DROP TABLE table_name;
+
+TRUNCATE
+TRUNCATE TABLE table_name;
+The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+
+ALTER TABLE
+ALTER TABLE table_name
+ADD column_name datatype;
+
+ALTER TABLE - DROP COLUMN
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ALTER TABLE - RENAME COLUMN
+ALTER TABLE table_name
+RENAME COLUMN old_name to new_name;
+
+ALTER TABLE - ALTER/MODIFY DATATYPE
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+
+SQL Constraints
+CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);
+
+Views
+CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = 'Brazil';
+SELECT * FROM [Brazil Customers];
+
+
+--------------------------------------------------------------------------------
 Read 
 https://www.w3schools.com/sql/sql_like.asp
 https://www.w3schools.com/sql/sql_wildcards.asp
 https://www.w3schools.com/sql/sql_alias.asp
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+________________________________________________________________________________
+
 
 SQL SERVER Tutorial
 https://www.sqlservertutorial.net/sql-server-basics/sql-server-like/
+-----Server alias 
 
+
+_____ To Study ______
+Table Valued Function
+Scalar Valued Function
+Views
+Procedure
+Trigger
 
 
